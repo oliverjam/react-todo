@@ -1,0 +1,130 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  color: hsl(200, 20%, 15%);
+}
+
+input,
+textarea,
+button {
+  display: block;
+  background: none;
+  font-family: inherit;
+  font-size: inherit;
+  border: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+.main {
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+@media (min-width: 40rem) {
+  .main {
+    display: grid;
+    grid-template-columns: 20rem 1fr;
+    grid-gap: 2rem;
+  }
+}
+
+.form {
+}
+
+.form__label {
+  display: block;
+  margin-top: 1rem;
+}
+
+.form__input {
+  width: 100%;
+  margin-top: 0.5rem;
+  box-shadow: 0 2px 4px hsla(200, 20%, 20%, 0.1);
+  border: 1px solid hsl(200, 10%, 92%);
+  border-radius: 4px;
+  padding: 0.5rem;
+}
+
+.form__btn {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #f9a4a4;
+  color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px hsla(200, 20%, 20%, 0.1);
+}
+
+.todos {
+  margin-top: 2rem;
+}
+
+@media (min-width: 40rem) {
+  .todos {
+    margin: 0;
+  }
+}
+
+.todos__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  grid-gap: 1rem;
+  margin-top: 1rem;
+}
+
+.todo {
+  box-shadow: 0 2px 4px hsla(200, 20%, 20%, 0.1);
+  border: 1px solid hsl(200, 10%, 92%);
+  border-radius: 4px;
+}
+
+.todo__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 0;
+}
+
+.todo__title {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.todo__btn {
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  border-radius: 4px;
+  font-size: 2rem;
+  color: #f9a4a4;
+  transition: color 0.2s, background-color 0.2s;
+}
+
+.todo__btn:hover {
+  background-color: #f9a4a4;
+  color: #fff;
+}
+
+.todo__body {
+  padding: 1rem;
+  color: hsl(200, 10%, 30%);
+}
+
+.todo__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  background-color: hsl(0, 10%, 96%);
+  color: hsl(200, 10%, 40%);
+}
