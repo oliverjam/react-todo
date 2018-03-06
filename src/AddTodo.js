@@ -39,7 +39,7 @@ class AddTodo extends Component {
           </label>
           <label htmlFor="todo-description" className="form__label">
             Description
-            <textarea
+            <input
               id="todo-description"
               name="description"
               type="text"

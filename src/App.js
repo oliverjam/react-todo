@@ -1,47 +1,26 @@
-import React, { Component, Fragment } from 'react';
+import React, { Fragment } from 'react';
+import Component from '@reactions/component';
+
 import AddTodo from './AddTodo';
 
-class App extends Component {
-  state = {
-    newTodo: '',
-    todos: [
-      {
-        title: 'Do a thing',
-        description: 'Plz do the thing',
-        date: new Date(),
-        owner: 'Oliver',
-      },
-      {
-        title: 'Do a thing',
-        description: 'Plz do the thing',
-        date: new Date(),
-        owner: 'Oliver',
-      },
-      {
-        title: 'Do a thing',
-        description: 'Plz do the thing',
-        date: new Date(),
-        owner: 'Oliver',
-      },
-      {
-        title: 'Do a thing',
-        description: 'Plz do the thing',
-        date: new Date(),
-        owner: 'Oliver',
-      },
-    ],
-    loggedIn: false,
-    username: 'Oliver',
-  };
-  updateTodos = newTodo =>
-    this.setState({ todos: [...this.state.todos, newTodo] });
-  removeTodo = id => () => {
-    const todos = this.state.todos.filter(todo => todo.date !== id);
-    this.setState({ todos });
-  };
-  render() {
-    const { todos } = this.state;
-    return (
+const initialState = {
+  newTodo: '',
+  todos: [
+    {
+      title: 'Do a thing',
+      description: 'Plz do the thing',
+      date: new Date(),
+      owner: 'Oliver',
+    },
+  ],
+  username: 'Oliver',
+};
+const updateTodos = setState => newTodo =>
+  setState(state => ({ todos: [...state.todos, newTodo] }));
+
+const App = () => (
+  <Component initialState={initialState}>
+    {({ setState, state: { todos, username } }) => (
       <Fragment>
         <header className="header">
           <span className="header__title">To-do</span>
@@ -67,10 +46,7 @@ class App extends Component {
         </header>
         {/* <h1 className="page-title">Your to-dos</h1> */}
         <main className="main">
-          <AddTodo
-            updateTodos={this.updateTodos}
-            username={this.state.username}
-          />
+          <AddTodo updateTodos={updateTodos(setState)} username={username} />
           <section className="todos">
             <h2>Your to-dos</h2>
             <ul className="todos__grid">
@@ -80,7 +56,13 @@ class App extends Component {
                     <header className="todo__header">
                       <h2 className="todo__title">{todo.title}</h2>
                       <button
-                        onClick={this.removeTodo(todo.date)}
+                        onClick={() =>
+                          setState(state => ({
+                            todos: state.todos.filter(
+                              x => x.date !== todo.date
+                            ),
+                          }))
+                        }
                         className="todo__btn"
                         aria-label="Delete to-do"
                       >
@@ -105,8 +87,8 @@ class App extends Component {
           </section>
         </main>
       </Fragment>
-    );
-  }
-}
+    )}
+  </Component>
+);
 
 export default App;
