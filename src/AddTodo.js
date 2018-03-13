@@ -17,13 +17,14 @@ class AddTodo extends Component {
       description,
       date: new Date(),
       owner: this.props.username,
+      done: false,
     };
     this.props.updateTodos(newTodo);
     this.setState({ title: '', description: '' });
   };
   render() {
     return (
-      <section>
+      <section className="add-todos">
         <h2>Add to-do</h2>
         <form className="form" onSubmit={this.handleSubmit}>
           <label htmlFor="todo-title" className="form__label">

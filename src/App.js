@@ -11,6 +11,7 @@ const initialState = {
       description: 'Plz do the thing',
       date: new Date(),
       owner: 'Oliver',
+      done: false,
     },
   ],
   username: 'Oliver',
@@ -51,32 +52,55 @@ const App = () => (
             <h2>Your to-dos</h2>
             <ul className="todos__grid">
               {todos.map(todo => (
-                <li key={todo.date} className="todo">
+                <li
+                  key={todo.date}
+                  className={`todo${todo.done ? ' todo--done' : ''}`}
+                >
                   <div className="todo__body">
                     <header className="todo__header">
                       <h2 className="todo__title">{todo.title}</h2>
-                      <button
-                        onClick={() =>
-                          setState(state => ({
-                            todos: state.todos.filter(
-                              x => x.date !== todo.date
-                            ),
-                          }))
-                        }
-                        className="todo__btn"
-                        aria-label="Delete to-do"
-                      >
-                        ✖
-                      </button>
+                      <div className="todo__btns">
+                        <button
+                          onClick={() =>
+                            setState(state => ({
+                              todos: state.todos.map(
+                                x =>
+                                  x.date === todo.date
+                                    ? { ...x, done: !x.done }
+                                    : x
+                              ),
+                            }))
+                          }
+                          className="todo__btn todo__btn--done"
+                          aria-label="Mark to-do as done"
+                        >
+                          ✔︎
+                        </button>
+                        <button
+                          onClick={() =>
+                            setState(state => ({
+                              todos: state.todos.filter(
+                                x => x.date !== todo.date
+                              ),
+                            }))
+                          }
+                          className="todo__btn todo__btn--delete"
+                          aria-label="Delete to-do"
+                        >
+                          ✖
+                        </button>
+                      </div>
                     </header>
                     <p className="todo__description">{todo.description}</p>
                   </div>
                   <footer className="todo__footer">
                     <time className="todo__date" dateTime={todo.date}>
                       {todo.date.toLocaleDateString('en-gb', {
+                        day: '2-digit',
+                        month: '2-digit',
+                        year: '2-digit',
                         hour: '2-digit',
                         minute: '2-digit',
-                        second: '2-digit',
                       })}
                     </time>
                     <span className="todo__owner">{todo.owner}</span>
