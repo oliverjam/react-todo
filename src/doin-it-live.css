@@ -1,0 +1,154 @@
+/* 1. Reduce the body contrast */
+
+body {
+}
+
+/* 2. Minimise font usage */
+
+h1,
+h2 {
+  font-family: Lobster, cursive;
+}
+
+/* 3. Centre content */
+/* 4. Fill the unused horizontal space on bigger screens  */
+
+.main {
+  padding: 1rem;
+}
+
+.header__link {
+  text-decoration: none;
+  text-decoration-skip: ink;
+  transition: color 0.2s;
+}
+
+.header__link:hover {
+  color: hsl(10, 100%, 60%);
+}
+
+.add-todos {
+  margin-top: 1rem;
+}
+
+@media (min-width: 40rem) {
+  .add-todos {
+    margin: 0;
+  }
+}
+
+.form__label {
+  display: block;
+  margin-top: 1rem;
+}
+
+/* 5. Make buttons/inputs consistent (colour/box-shadow) */
+
+.form__input {
+  margin-top: 0.5rem;
+  border: 1px solid;
+  border-radius: 2px;
+  padding: 0.5rem;
+  background-color: #fff;
+}
+
+.form__btn {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: red;
+  color: #fff;
+  border-radius: 2px;
+}
+
+.todos {
+  margin-top: 2rem;
+}
+
+/* 6. Put todos in a grid */
+
+.todos__grid {
+  margin-top: 1rem;
+}
+
+/* 7. Try some box-shadow */
+.todo {
+  position: relative;
+  margin-top: 1rem;
+  border: 1px solid hsl(200, 10%, 80%);
+  border-radius: 4px;
+  background-color: #fff;
+  transition: opacity 0.2s;
+}
+
+.todo--done {
+  opacity: 0.5;
+}
+
+.todo--done .todo__title,
+.todo--done .todo__description,
+.todo--done .todo__footer {
+  text-decoration: line-through;
+}
+
+.todo__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 0;
+}
+
+/* 8. Use weight rather than size to differentiate */
+
+.todo__title {
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.todo__btns {
+  display: flex;
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+}
+
+.todo__btn {
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  border-radius: 4px;
+  font-size: 2rem;
+  transition: color 0.2s;
+}
+
+.todo__btn--done {
+  color: hsl(120, 100%, 30%);
+}
+
+.todo__btn--delete {
+  color: hsl(10, 100%, 60%);
+}
+
+.todo__btn:hover {
+  color: hsl(200, 20%, 20%);
+}
+
+.todo__body {
+  padding: 1rem;
+}
+
+.todo__description {
+  margin-top: 0.5rem;
+}
+
+/* 9. Use colour rather than size to differentiate */
+/* 10. Use background rather than border to separate */
+
+.todo__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  font-size: 0.675rem;
+  border-top: 1px solid hsl(200, 10%, 80%);
+}

@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 class AddTodo extends Component {
   state = {
-    title: '',
-    description: '',
+    title: "",
+    description: ""
   };
   handleChange = e => {
     const { name, value } = e.target;
@@ -17,20 +17,14 @@ class AddTodo extends Component {
       description,
       date: new Date(),
       owner: this.props.username,
-      done: false,
+      done: false
     };
     this.props.updateTodos(newTodo);
-    this.setState({ title: '', description: '' });
+    this.setState({ title: "", description: "" });
   };
   render() {
     return (
       <section className="add-todos">
-        <h1 className="page-title">
-          To-do App{' '}
-          <span role="img" aria-label="Checkmark logo">
-            ✅
-          </span>
-        </h1>
         <h2>Add to-do</h2>
         <form className="form" onSubmit={this.handleSubmit}>
           <label htmlFor="todo-title" className="form__label">
