@@ -23,7 +23,7 @@ const App = () => (
   <Component initialState={initialState}>
     {({ setState, state: { todos, username } }) => (
       <Fragment>
-        <header className="header">
+        {/* <header className="header">
           <span className="header__title">To-do</span>
           <nav className="header__nav">
             <ul className="header__list">
@@ -44,7 +44,7 @@ const App = () => (
               </li>
             </ul>
           </nav>
-        </header>
+        </header> */}
         {/* <h1 className="page-title">Your to-dos</h1> */}
         <main className="main">
           <AddTodo updateTodos={updateTodos(setState)} username={username} />

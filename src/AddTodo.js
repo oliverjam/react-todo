@@ -25,6 +25,12 @@ class AddTodo extends Component {
   render() {
     return (
       <section className="add-todos">
+        <h1 className="page-title">
+          To-do App{' '}
+          <span role="img" aria-label="Checkmark logo">
+            ✅
+          </span>
+        </h1>
         <h2>Add to-do</h2>
         <form className="form" onSubmit={this.handleSubmit}>
           <label htmlFor="todo-title" className="form__label">

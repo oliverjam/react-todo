@@ -48,11 +48,10 @@ ul {
   }
 }
 
-.header {
+/* .header {
   display: flex;
   padding: 1rem calc(1rem + 4vw);
   background-color: #fff;
-  /* border-bottom: 1px solid hsl(200, 10%, 80%); */
 }
 
 .header__title {
@@ -81,6 +80,13 @@ ul {
 
 .header__link:hover {
   color: #f9a4a4;
+} */
+
+.page-title {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid;
 }
 
 .add-todos {
@@ -101,6 +107,7 @@ ul {
   border-radius: 4px;
   padding: 0.5rem;
   background-color: #fff;
+  color: hsl(200, 10%, 20%);
 }
 
 .form__btn {
