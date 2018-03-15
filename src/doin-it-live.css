@@ -151,7 +151,7 @@ h2 {
 /* 8. Use weight rather than size to differentiate */
 
 .todo__title {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 700;
   line-height: 1;
 }
