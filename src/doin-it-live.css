@@ -17,14 +17,27 @@ h2 {
 /* 4. Fill the unused horizontal space on bigger screens  */
 
 .main {
-  max-width: 64rem;
-  margin: 4rem auto;
+  max-width: 74rem;
+  margin: 0 auto;
   padding: 1rem;
-  display: flex;
+}
+
+@media (min-width: 40em) {
+  .main {
+    margin-top: 4rem;
+    display: grid;
+    grid-template-columns: minmax(12rem, 1fr) 2fr;
+    grid-gap: 4rem;
+  }
 }
 
 .header {
   background-color: #fff;
+}
+
+.header__nav {
+  display: flex;
+  align-items: center;
 }
 
 .header__link {
@@ -55,11 +68,12 @@ h2 {
 /* 5. Make buttons/inputs consistent (colour/box-shadow) */
 
 .form__input {
+  width: 100%;
   margin-top: 0.5rem;
   border: 1px solid;
   border: 1px solid hsl(200, 10%, 80%);
   box-shadow: 0 1px 2px hsla(200, 10%, 20%, 0.25);
-  border-radius: 2px;
+  border-radius: 4px;
   padding: 0.5rem;
   background-color: #fff;
 }
@@ -72,7 +86,7 @@ h2 {
 .form__btn {
   margin-top: 1rem;
   padding: 0.5rem 1rem;
-  box-shadow: 0 1px 2px hsla(200, 10%, 20%, 0.25);
+  box-shadow: 0 1px 4px hsla(200, 10%, 20%, 0.25);
   background-color: hsl(10, 100%, 60%);
   color: #fff;
   border-radius: 6px;
@@ -90,8 +104,6 @@ h2 {
 @media (min-width: 40em) {
   .todos {
     margin-top: 0;
-    margin-left: 4rem;
-    flex: 1;
   }
 }
 
@@ -99,10 +111,8 @@ h2 {
 
 .todos__grid {
   margin-top: 1rem;
-  /* display: flex;
-  flex-wrap: wrap; */
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
   grid-gap: 1rem;
 }
 
@@ -112,9 +122,9 @@ h2 {
   margin-top: 0;
   border: 1px solid hsl(200, 10%, 80%);
   border-radius: 4px;
+  box-shadow: 0 1px 4px hsla(200, 10%, 20%, 0.25);
   background-color: #fff;
   transition: opacity 0.2s;
-  /* flex: 1 0 12rem; */
 }
 
 /* .todo:not(:first-child) {
@@ -194,4 +204,5 @@ h2 {
   border-top: none;
   color: hsl(200, 10%, 40%);
   background-color: hsl(200, 20%, 96%);
+  border-radius: 0 0 4px 4px; /* To match the parent todo so this doesn't stick out at the corners */
 }
